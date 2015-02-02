@@ -67,28 +67,6 @@
 
 \paragraph{7. } Amazon Simple Storage Service (S3), Amazon SimpleDB, Simple Queue Service (SQS), Elastic Load Balancing (ELB) have been built with fault tolerance and high availability in mind. However Amazon Elastic Compute Cloud (EC2) and Elastic Block Store (EBS) do not inherently provide these benefits yet fault-tolerant and high-availability can be achieved by adding availability zones, using Elastic IP addresses to remap to other working instance during failure, and creating snapshot backup of EBS volume to store in S3.
 
-\paragraph{8. } Describe the necessity of ‘Amazon Machine Image (AMI)’ and ‘security group’ customization in ‘Web Application Hosting’ as described in the AWS Architecture documentation.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\paragraph{8. } In 'Web Application Hosting', one starts by choosing an AMI, which is a softwares (OS and applications) configuration template, to launch a virtual server (instance) in the cloud, then customize it to his/her needs and this custom AMI will serve as the starting point for future web development. And the customization of 'Security Group' consisting of a set of firewall rules to control the traffics for the instance such as HTTP and HTTPS for web server.
 
 \end{document}
