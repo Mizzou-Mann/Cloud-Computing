@@ -63,9 +63,9 @@
 	\item[Provisioned IOPS (SSD): ] deliver up to 4000 IOPS.
 \end{description}
 
-\paragraph{6. } According to 'Amazon Content and Media Service Architecture', IT enterprises should use AWS to handle 'spiky' hour demands since AWS provides programmable elastic infrastructure scaling to react quickly to the demands curve and this results in pay-as-you-go and pay what you used pricing model.
+\paragraph{6. } According to 'Amazon Content and Media Service Architecture', IT enterprises should use AWS to handle 'spiky' hour demands since AWS provides programmable elastic infrastructure scaling to react quickly to the demands curve and this results in pay-as-you-go and pay for only what you use pricing model.
 
-\paragraph{7. } Some AWS services have been built with fault tolerance and high availability in mind. Referring to the AWS Architecture documentation, list the services that are inherently fault tolerant and provide high availability. What other services do not inherently provide these benefits, and how does one add these capabilities within those services?
+\paragraph{7. } Amazon Simple Storage Service (S3), Amazon SimpleDB, Simple Queue Service (SQS), Elastic Load Balancing (ELB) have been built with fault tolerance and high availability in mind. However Amazon Elastic Compute Cloud (EC2) and Elastic Block Store (EBS) do not inherently provide these benefits yet fault-tolerant and high-availability can be achieved by adding availability zones, using Elastic IP addresses to remap to other working instance during failure, and creating snapshot backup of EBS volume to store in S3.
 
 \paragraph{8. } Describe the necessity of ‘Amazon Machine Image (AMI)’ and ‘security group’ customization in ‘Web Application Hosting’ as described in the AWS Architecture documentation.
 
