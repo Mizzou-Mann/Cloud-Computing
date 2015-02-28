@@ -44,10 +44,10 @@ and adding inbound traffic rule to security group via \texttt{ec2 authorize-secu
 \begin{description}
 \leftskip 0.4in
 \parindent -0.4in
-	\item[\texttt{--group-name} : ] set security group name.
-	\item[\texttt{--protocol} : ] set IP protocol eg. tcp, udp or icmp.
-	\item[\texttt{--port} : ] set tcp or tcp port range.
-	\item[\texttt{-cidr} : ] set IP range.
+	\item[\texttt{--group-name} : ] security group name.
+	\item[\texttt{--protocol} : ] IP protocol eg. tcp, udp or icmp.
+	\item[\texttt{--port} : ] tcp or tcp port range.
+	\item[\texttt{-cidr} : ] IP range.
 \end{description}
 \begin{verbatim}
 # aws ec2 create-security-group  \
@@ -77,7 +77,8 @@ Delete security group via \texttt{ec2 delete-security-group} command with \textt
 \end{verbatim}
 
 % ---------------------------------------- 3 ----------------------------------------
-\paragraph{3. } Enter the commands below and describe in detail the results; you will need an AMI available. Once the command is executed, using aws-cli commands, terminate the instances, delete ‘cloud-key’ and ‘cloud-group’. Include screenshot. \\ec2-run-instances ami-xxxxxx --instance-type t1.micro --instance-count 2  --key cloud-key  --group cloud-group  --region us-east-1
+\paragraph{3. } Enter the commands below and describe in detail the results; you will need an AMI available. Once the command is executed, using aws-cli commands, terminate the instances, delete ‘cloud-key’ and ‘cloud-group’. Include screenshot. \\
+ec2-run-instances ami-xxxxxx --instance-type t1.micro --instance-count 2  --key cloud-key  --group cloud-group  --region us-east-1
 
 % ---------------------------------------- 4 ----------------------------------------
 \paragraph{4. } Get status information of all instances using aws-cli commands.
