@@ -179,6 +179,15 @@ Attach the volume to the running instance (i-de16732f) via \texttt{aws ec2 attac
 \end{figure} 
 
 % ---------------------------------------- 8 ----------------------------------------
-\paragraph{8. } Briefly explain the 6 AWS best practices described by Amazon AWS. 
-
+\paragraph{8. } The six best practices described by Amazon AWS:
+\begin{description}
+\leftskip 0.4in
+\parindent -0.4in
+	\item[Design for failure and nothing will fail : ] \hfill \\ By assuming everything can fail (hardware failure, software failure, outage and failure due to natural disaster), application architects should embrace automated recovery for data, OS configurations, and in-progress jobs processing.
+	\item[Decouple your components : ] \hfill \\ The cloud encourages Service-Oriented-Architecture for decoupling the components in the system to support concurrency, high availability.
+	\item[Implement elasticity : ] \hfill \\ Automated scaling by automating deployment process with script to help reduce error and facilitate an efficient and scalable update process.
+	\item[Think parallel : ] \hfill \\ The cloud architects should parallelize their applications to make them thread-safe, multi-threading and request parallelization to achieve maximum performance and throughput.
+	\item[Keep dynamic data closer to the compute and static data closer to the end-user : ] \hfill \\ To reduce the processing and internet latency by moving the data and data-consuming applications into the cloud and moving static content such as images, videos, audios, pdfs, etc., into content delivery network which get cached at edge locations closer to the users to lower the access latency.
+	\item[Security Best Practices: ] \hfill \\ Developers should implement security best practices and standard methods such as 1) configuring SSL or setting up Virtual Private Cloud for sensitive information exchanges, 2) using file encryption tools to secure the storage, 3) using AWS access key and access key rotation when the key get compromised or X.509 certificates for authentication and multi-factor authentication with Amazon account information, 3) using AWS Identity and Access Management (IAM) to manage user permission on accessing AWS services, 4) configuring security group for incoming network traffic, using firewall softwares (\emph{netfilter} and \emph{iptables}), regularly updating patches and run security checks.
+\end{description}
 \end{document}
