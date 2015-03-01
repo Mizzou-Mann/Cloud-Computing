@@ -1,0 +1,34 @@
+<rspec type="request" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/request.xsd " xmlns:flack="http://www.protogeni.net/resources/rspec/ext/flack/1" xmlns:client="http://www.protogeni.net/resources/rspec/ext/client/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.geni.net/resources/rspec/3">
+  <node client_id="node1" exclusive="false">
+    <emulab:routable_control_ip xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-openvz"/>
+	
+    <interface client_id="node1:if0">
+      <flack:interface_info addressBound="false" bound="false"/>
+    </interface>
+    <flack:node_info x="167" y="134" unbound="true"/>
+  </node>
+  <node client_id="node2" exclusive="false">
+    <emulab:routable_control_ip xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-openvz"/>
+	
+    <interface client_id="node2:if0">
+      <flack:interface_info addressBound="false" bound="false"/>
+    </interface>
+    <flack:node_info x="493" y="131" unbound="true"/>
+  </node>
+  <node client_id="root" exclusive="false">
+    <emulab:routable_control_ip xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-openvz"/>
+	
+    <flack:node_info x="319" y="264" unbound="true"/>
+  </node>
+  <link client_id="link0">
+    <interface_ref client_id="node1:if0"/>
+    <interface_ref client_id="node2:if0"/>
+    <property source_id="node1:if0" dest_id="node2:if0"/>
+    <property source_id="node2:if0" dest_id="node1:if0"/>
+    <flack:link_info x="-1" y="-1" unboundVlantag="true"/>
+  </link>
+  <flack:slice_info view="graph"/>
+</rspec>
