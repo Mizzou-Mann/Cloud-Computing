@@ -1,0 +1,25 @@
+<rspec type="request" generated_by="Flack" generated="2013-08-29T19:21:23Z" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/request.xsd " xmlns:flack="http://www.protogeni.net/resources/rspec/ext/flack/1" xmlns:client="http://www.protogeni.net/resources/rspec/ext/client/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.geni.net/resources/rspec/3">
+  <node client_id="client"  exclusive="false">
+    <sliver_type name="emulab-xen"/>
+    
+    <interface client_id="client:interface">
+      <flack:interface_info addressBound="false" bound="false"/>
+    </interface>
+    <flack:node_info x="627" y="668" unbound="true"/>
+  </node>
+  <node client_id="server"  exclusive="false">
+    <sliver_type name="emulab-xen"/>
+    
+    <interface client_id="server:interface">
+      <flack:interface_info addressBound="false" bound="false"/>
+    </interface>
+    <flack:node_info x="802" y="95" unbound="true"/>
+  </node>
+  <link client_id="lan">    
+    <interface_ref client_id="client:interface"/>
+    <interface_ref client_id="server:interface"/>
+    <flack:link_info x="-1" y="-1" unboundVlantag="true"/>
+  </link>
+  <client:client_info name="Flack" environment="Flash Version: MAC 11,8,800,115, OS: Mac OS 10.8.2, Arch: x86, Screen: 2048x1152 @ 72 DPI with touchscreen type none" version="v14.100" url="https://www.emulab.net/protogeni/flack2/flack.swf"/>
+   <flack:slice_info view="graph"/>
+</rspec>
