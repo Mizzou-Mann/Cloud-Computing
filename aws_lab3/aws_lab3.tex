@@ -44,7 +44,7 @@ Where 'ami-aa0237c2' is the custom AMI created from an instance of type 't1.micr
 Where 'ELB' is an already created load balancer.
 
 % ---------------------------------------- 3 ----------------------------------------
-\paragraph{3. } Use \texttt{as-put-scaling-policy} command to create or update auto scaling policy and pass the name 'scale-up-policy' as its argument along with options \texttt{--auto-scaling-group} set to 'new-asg', \texttt{--adjustment=2} to scale up two instances, \texttt{--type} set to 'ChangeInCapacity', and \texttt{--cooldown} set to '240' for evaluating interval in seconds:
+\paragraph{3. } Use \texttt{as-put-scaling-policy} command to create or update auto scaling policy and pass the name 'scale-up-policy' as its argument along with options \texttt{--auto-scaling-group} set to 'new-asg', \texttt{--adjustment=2} to scale up two instances, \texttt{--type} set to 'ChangeInCapacity', and \texttt{--cooldown} set to '240' for re-evaluating interval in seconds:
 
 \begin{verbatim}
 # as-put-scaling-policy scale-up-policy \
@@ -55,7 +55,7 @@ Where 'ELB' is an already created load balancer.
 \end{verbatim}
 
 % ---------------------------------------- 4 ----------------------------------------
-\paragraph{4. } We should use Amazon CloudWatch to create an Alarm with 'new-asg' CPUUtilization metric to measure the computing resources then define threshold condition and to trigger the policy we need to add AutoScaling Action then set \textbf{Whenever this alarm}: 'State is ALARM', \textbf{From the group}: 'new-asg', and \textbf{Take this action}: 'scale-up-policy'.
+\paragraph{4. } We should use Amazon CloudWatch to create an Alarm with 'new-asg' CPUUtilization metric to measure the computing resources then define threshold condition(e.g. CPUUtilization \textgreater= 50) and to trigger the policy we need to add AutoScaling Action then set \textbf{Whenever this alarm}: 'State is ALARM', \textbf{From the group}: 'new-asg', and \textbf{Take this action}: 'scale-up-policy'.
 
 % ---------------------------------------- 5 ----------------------------------------
 \paragraph{5. } The screenshots taken in Steps 3.5.3 and 3.5.4:
