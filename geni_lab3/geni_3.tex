@@ -1,0 +1,40 @@
+% geni_3.tex - GENI Lab 2 for Cloud Computing class (Spring 2015)
+% Chanmann Lim - April 2015
+
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1 in]{geometry}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{float}
+
+\begin{document}
+\title{CS 7001-03: Report for GENI Lab 3 - QoS Configuration and Load Balancing using Software-Defined Networking}
+\author{Chanmann Lim\\ 
+	\texttt{cl9p8@mail.mail.missouri.edu}}
+\date{April 14, 2015}
+\maketitle
+
+% ---------------------------------------- 1 ----------------------------------------
+\paragraph{1. } Add the two screenshots taken in Step 3.4. Also, provide a brief description of your Wireshark packetanalysis for “Header” and "Stats Request".\\
+
+% ---------------------------------------- 2 ----------------------------------------
+\paragraph{2. } From the QoS Experimentation scenario shown in below Figure 13, show a screenshot and describe the results obtained using Iperf server on host1 and Iperf client on host 4. Which queue number in the switches is used for the traffic flow between host1 and host4? Similarly, which queue number in the switches is used when you start Iperf client on host 2 and Iperf server on host 1?
+
+% ---------------------------------------- 3 ----------------------------------------
+\paragraph{3. } Consider the new topology shown in Figure 14 with 6 hosts, 7 switches and 1 controller. Describe the commands to establish a new queue ‘q3’ of 80 Mbps between host 'h5' as source and host 'h6' as destination (i.e., give the two commands for queue configuration and for adding the flows).
+
+% ---------------------------------------- 4 ----------------------------------------
+\paragraph{4. } Attach the two screenshots taken in Step 3.5
+
+% ---------------------------------------- 5 ----------------------------------------
+\paragraph{5. } This question requires that you extend the load\_balancer.sh script and run new Load Balancer Experimentation using the following steps: \\
+
+i) Scale the load balancer to handle more requests by adding two new hosts h5 (10.0.0.5) and h6 (10.0.0.6) to the load balancer pool and adding the appropriate entries in the load\_balancer.sh script. Run the load\_balancer.sh script again to update the new flow rules. \\
+
+ii) On the mininet CLI, start the xterm terminals for the new end-hosts h7 and h8 by giving the below command: \$mininet: xterm h7 h8 \\
+
+iii) Start the ping command from hosts h1 and h2 terminals to load balancer 10.0.0.100 and allow the ping to run continuously. Simultaneously, start the ping command from hosts h7 and h8 terminals to the load balancer 10.0.0.100. \\
+
+What happens when you ping from new end-hosts h7 and h8 to the load balancer 10.0.0.100? Which hosts are responding to the new requests and what does this result suggest? Attach a single screenshot with all the four ping windows running simultaneously.
+\end{document}
