@@ -41,7 +41,7 @@ And the \emph{of\_match} header contains \emph{wildcards}: Wildcards fields, \em
   \caption{Iperf test from h4 to h1}
 \end{figure}
 
-By using the topology created in \textbf{step 3.3.1} and the QOS configuration in \textbf{step 3.3.2}, the traffic flow between host4 and host1 is conducted through queue "0" which had configured with the maximum bandwidth up to 1 Gbps, similarly since the traffic flow between host2 and host1 doesn't match with both queue "1" and queue "2" rules it will fallback to use queue "0" in the switches.
+By using the topology created in \textbf{step 3.3.1} and the QOS configuration in \textbf{step 3.3.2}, the traffic flow between host4 and host1 is conducted through queue "0" which had configured with the maximum bandwidth up to 1 Gbps, similarly since the traffic flow from host2 to host1 doesn't match with both queue "1" and queue "2"'s rules "50Mbps-h3-h4" and "40Mbps-h1-h2" respectively it will fallback to use queue "0" in the switches.
 
 
 % ---------------------------------------- 3 ----------------------------------------
