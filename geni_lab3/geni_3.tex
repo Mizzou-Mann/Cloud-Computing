@@ -45,7 +45,25 @@ By using the topology created in \textbf{step 3.3.1} and the QOS configuration i
 
 
 % ---------------------------------------- 3 ----------------------------------------
-\paragraph{3. } Consider the new topology shown in Figure 14 with 6 hosts, 7 switches and 1 controller. Describe the commands to establish a new queue ‘q3’ of 80 Mbps between host 'h5' as source and host 'h6' as destination (i.e., give the two commands for queue configuration and for adding the flows).
+\paragraph{3. } Assuming that we have the topology with 6 hosts, 7 switches and 1 controller as shown in the Figure 14 of the GENI Lab 3 instruction. To establish a new queue 'q3' of 80 Mbps between host 'h5' as source and host 'h6' as destination, first we need to configure the queue by editing the \texttt{mininet-add-queues.py}
+
+\begin{verbatim}
+# vim /home/floodlight-qos-beta/apps/qos/mininet-add-queues.py
+\end{verbatim}
+then change the \texttt{queuecmd} variable at line 67 to \\
+
+\small{\sf{queuecmd = "sudo ovs-vsctl \%s \--\-- \--\--id=@defaultqos create qos type=linux-htb other-config:max-rate=1000000000 queues=0=@q0,1=@q1,2=@q2,3=@q3 \--\-- \--\--id=@q0 create queue other-config:min-rate=1000000000 other-config:max-rate=1000000000 \--\-- \--\--id=@q1 create queue other-config:max-rate=50000000 \--\-- \--\--id=@q2 create queue other-config:max-rate=40000000 \--\-- \--\--id=@q3 create queue other-config:max-rate=80000000 other-config:min-rate=2000000" \% config\_strings[sw]}} \\
+
+\noindent then run:
+\begin{verbatim}
+# ./floodlight-qos-beta/apps/qos/mininet-add-queues.py
+\end{verbatim}
+
+It will configure queue "1", queue "2", and queue "3" with 50 Mbps, 40 Mbps and 80 Mbps respectively for all ports of all switches. Next change directory to \texttt{floodlight-qos-beta/apps/qos/} and execute \texttt{qospath2.py} command to establish flow between 'h5' and 'h6' using queue "3"
+\begin{verbatim}
+# ./qospath2.py -p 8080 -a -N 80Mbps-h5-h6 -J '{"eth-type":"0x0800","queue":"3"}' \
+   -S 10.0.0.5 -D 10.0.0.6
+\end{verbatim}
 
 % ---------------------------------------- 4 ----------------------------------------
 \paragraph{4. } Attach the two screenshots taken in Step 3.5
