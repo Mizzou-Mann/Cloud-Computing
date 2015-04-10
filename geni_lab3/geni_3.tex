@@ -16,10 +16,33 @@
 \maketitle
 
 % ---------------------------------------- 1 ----------------------------------------
-\paragraph{1. } Add the two screenshots taken in Step 3.4. Also, provide a brief description of your Wireshark packetanalysis for “Header” and "Stats Request".\\
+\paragraph{1. } Screenshots taken in Step 3.4:
+\begin{figure}[H]
+  \centering
+    \includegraphics[scale=.47]{iperf_h3_h4.png}
+  \caption{Iperf test from h3 to h4}
+\end{figure}
+\begin{figure}[H]
+  \centering
+    \includegraphics[scale=.47]{iperf_h1_h2.png}
+  \caption{Iperf test from h1 to h2}
+\end{figure}
+
+The packets captured by Wireshark with "lo" interface and "of" filter in \textbf{step. 3.4} list only the OpenFlow control packet of the loopback interface, and when clicking on an "of\_aggregate\_stats\_request" packet, we obtain the detail OpenFlow headers in the packet such as \emph{version}, \emph{type}, \emph{length}, \emph{xid}, \emph{stats\_type}, \emph{flags}, \emph{of\_match}, \emph{table\_id}, and \emph{out\_port}.
+
+And the \emph{of\_match} header contains \emph{wildcards}: Wildcards fields, \emph{in\_port}: Input switch port, \emph{eth\_src}: Ethernet source address, \emph{eth\_dst}: Ethernet destination address, \emph{vlan\_vid}: Input VLAN id, \emph{vlan\_pcp}: Input VLAN priority, \emph{eth\_type}: Ethernet frame type, \emph{id\_dscp}: IP ToS (actually DSCP field, 6 bits), \emph{ip\_proto}: IP protocol or lower 8 bits of ARP opcode, \emph{ipv4\_src}: IP source address, \emph{ipv4\_dst}: IP destination address, \emph{tcp\_src}: TCP source port, \emph{tcp\_dst}: TCP destination port.
+
 
 % ---------------------------------------- 2 ----------------------------------------
-\paragraph{2. } From the QoS Experimentation scenario shown in below Figure 13, show a screenshot and describe the results obtained using Iperf server on host1 and Iperf client on host 4. Which queue number in the switches is used for the traffic flow between host1 and host4? Similarly, which queue number in the switches is used when you start Iperf client on host 2 and Iperf server on host 1?
+\paragraph{2. } Screenshot of Iperf test from host4 to host1:
+\begin{figure}[H]
+  \centering
+    \includegraphics[scale=.47]{iperf_h4_h1.png}
+  \caption{Iperf test from h4 to h1}
+\end{figure}
+
+By using the topology created in \textbf{step 3.3.1} and the QOS configuration in \textbf{step 3.3.2}, the traffic flow between host4 and host1 is conducted through queue "0" which had configured with the maximum bandwidth up to 1 Gbps, similarly since the traffic flow between host2 and host1 doesn't match with both queue "1" and queue "2" rules it will fallback to use queue "0" in the switches.
+
 
 % ---------------------------------------- 3 ----------------------------------------
 \paragraph{3. } Consider the new topology shown in Figure 14 with 6 hosts, 7 switches and 1 controller. Describe the commands to establish a new queue ‘q3’ of 80 Mbps between host 'h5' as source and host 'h6' as destination (i.e., give the two commands for queue configuration and for adding the flows).
