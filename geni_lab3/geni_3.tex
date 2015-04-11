@@ -66,26 +66,24 @@ It will configure queue "1", queue "2", and queue "3" with 50 Mbps, 40 Mbps and 
 \end{verbatim}
 
 % ---------------------------------------- 4 ----------------------------------------
-\paragraph{4. } Two screenshots taken in Step 3.5:
+\paragraph{4. } Two screenshots taken in Step 3.6:
 \begin{figure}[H]
   \centering
-    \includegraphics[scale=.34]{floodlight_ui.png}
-  \caption{Floodlight with LoadBalancer module loaded}
+    \includegraphics[scale=.34]{ping_lb_from_h1.png}
+  \caption{Ping LoadBalancer from host1}
 \end{figure}
 \begin{figure}[H]
   \centering
-    \includegraphics[scale=.44]{pingall.png}
-  \caption{minute pinball in 'tree,3' topology}
+    \includegraphics[scale=.34]{ping_lb_from_h2.png}
+  \caption{Ping LoadBalancer from host2}
 \end{figure}
 
 % ---------------------------------------- 5 ----------------------------------------
-\paragraph{5. } This question requires that you extend the load\_balancer.sh script and run new Load Balancer Experimentation using the following steps: \\
+\paragraph{5. } After editing the \texttt{load\_balancer.sh} to add hosts h5 (10.0.0.5) and h6 (10.0.0.6) to the load balancer pool and start ping from h1 and h2 then ping from the new end-hosts h7 and h8 to the load balancer (10.0.0.100), we observed that h7 routed the Ping to h5 and h8 routed the Ping to h6 which indicates that the load balancer serves the requests (Ping in this case) by forwarding and distributing them across all members in load balancer pool.
 
-i) Scale the load balancer to handle more requests by adding two new hosts h5 (10.0.0.5) and h6 (10.0.0.6) to the load balancer pool and adding the appropriate entries in the load\_balancer.sh script. Run the load\_balancer.sh script again to update the new flow rules. \\
-
-ii) On the mininet CLI, start the xterm terminals for the new end-hosts h7 and h8 by giving the below command: \$mininet: xterm h7 h8 \\
-
-iii) Start the ping command from hosts h1 and h2 terminals to load balancer 10.0.0.100 and allow the ping to run continuously. Simultaneously, start the ping command from hosts h7 and h8 terminals to the load balancer 10.0.0.100. \\
-
-What happens when you ping from new end-hosts h7 and h8 to the load balancer 10.0.0.100? Which hosts are responding to the new requests and what does this result suggest? Attach a single screenshot with all the four ping windows running simultaneously.
+\begin{figure}[H]
+  \centering
+    \includegraphics[scale=.44]{ping_lb.png}
+  \caption{Ping LoadBalancer from host1, host2, host7 and host8}
+\end{figure}
 \end{document}
