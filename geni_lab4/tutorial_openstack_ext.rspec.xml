@@ -1,0 +1,49 @@
+<rspec xmlns="http://www.geni.net/resources/rspec/3" xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" xmlns:tour="http://www.protogeni.net/resources/rspec/ext/apt-tour/1" xmlns:jacks="http://www.protogeni.net/resources/rspec/ext/jacks/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.geni.net/resources/rspec/3    http://www.geni.net/resources/rspec/3/request.xsd" type="request">
+<node client_id="controller">
+    <sliver_type name="raw">
+      <disk_image name="urn:publicid:IDN+utah.cloudlab.us+image+emulab-ops//UBUNTU14-10-64-OSCNF"/>
+    </sliver_type>
+    <services>
+      
+      
+    <execute shell="sh" command="sudo /tmp/setup/setup-driver.sh"/><install url="http://www.emulab.net/downloads/openstack-setup-v2.tar.gz" install_path="/tmp"/></services>
+    <interface client_id="controller:if0"/>
+    <site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="28"/></node>
+<node client_id="networkmanager">
+    <sliver_type name="raw">
+      <disk_image name="urn:publicid:IDN+utah.cloudlab.us+image+emulab-ops//UBUNTU14-10-64-OSNMF"/>
+    </sliver_type>
+    <services>
+      
+      
+    <execute shell="sh" command="sudo /tmp/setup/setup-driver.sh"/><install url="http://www.emulab.net/downloads/openstack-setup-v2.tar.gz" install_path="/tmp"/></services>
+    <interface client_id="networkmanager:if0"/>
+    <site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="28"/></node>
+<node client_id="compute1">
+    <sliver_type name="raw">
+      <disk_image name="urn:publicid:IDN+utah.cloudlab.us+image+emulab-ops//UBUNTU14-10-64-OSCPF"/>
+    </sliver_type>
+    <services>
+      
+      
+    <execute shell="sh" command="sudo /tmp/setup/setup-driver.sh"/><install url="http://www.emulab.net/downloads/openstack-setup-v2.tar.gz" install_path="/tmp"/></services>
+    <interface client_id="compute1:if0"/>
+    <site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="28"/></node>
+<node client_id="compute2">
+    <sliver_type name="raw">
+      <disk_image name="urn:publicid:IDN+utah.cloudlab.us+image+emulab-ops//UBUNTU14-10-64-OSCPF"/>
+    </sliver_type>
+    <services>
+      
+      
+    <execute shell="sh" command="sudo /tmp/setup/setup-driver.sh"/><install url="http://www.emulab.net/downloads/openstack-setup-v2.tar.gz" install_path="/tmp"/></services>
+    <interface client_id="compute2:if0"/>
+    <site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="28"/></node>
+
+  <link client_id="lan-1">
+    <link_type name="lan"/>
+    <interface_ref client_id="controller:if0"/>
+    <interface_ref client_id="networkmanager:if0"/>
+    <interface_ref client_id="compute1:if0"/>
+    <interface_ref client_id="compute2:if0"/>
+  </link><emulab:routable_pool client_id="network_manager" count="5" type="any"/><rspec_tour xmlns="http://www.protogeni.net/resources/rspec/ext/apt-tour/1"><description xmlns="" type="markdown">An OpenStack instance with a controller, network manager, and one compute node. This profile runs on either x86 or ARM64 nodes. It sets up OpenStack Juno on Ubuntu 14.10, and configures all OpenStack services (Sahara might be installed partially via pip, because at the time this profile was created, it is not in the Ubuntu package repositories).</description><instructions xmlns="" type="markdown">Please visit [the OpenStack controller WWW interface](http://{host-controller}/horizon/auth/login/?next=/horizon/project/instances/) once your instance boots (approx. 5-10 minutes).  Log in as `admin`, password is `N!ceD3m0`. This same password can be used to log in as `root` to VM instances you bring up. **NOTE:** If the web interface rejects your password or gives another error, it might simply need more time to set up the backend. Wait a few minutes and try again.</instructions></rspec_tour></rspec>

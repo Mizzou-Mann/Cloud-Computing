@@ -48,7 +48,37 @@ The "Network Topology" tab under the Network section in the above Figure shows t
 \end{description}
 
 % ---------------------------------------- 4 ----------------------------------------
-\paragraph{4. } List the necessary changes in the profile file to add an extra compute node, and submit a revised RSpec.
+\paragraph{4. } To add an extra compute node to the "Tutorial-OpenStack" profile, we need to copy it to create a new profile then change the "rspec" as follow: \\
+
+\noindent Add compute node 2:
+\small{
+\begin{verbatim}
+<node client_id="compute2">
+    <sliver_type name="raw">
+      <disk_image name="urn:publicid:IDN+utah.cloudlab.us+image+emulab-ops//UBUNTU14-10-64-OSCPF"/>
+    </sliver_type>
+    <services>
+      <execute shell="sh" command="sudo /tmp/setup/setup-driver.sh"/>
+      <install url="http://www.emulab.net/downloads/openstack-setup-v2.tar.gz" 
+               install_path="/tmp"/>
+    </services>
+    <interface client_id="compute2:if0"/>
+    <site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="28"/>
+</node>
+\end{verbatim}} ~\\
+
+
+\noindent Change link tag to add 'compute2:if0' to the LAN:
+\small{
+\begin{verbatim}
+<link client_id="lan-1">
+    <link_type name="lan"/>
+    <interface_ref client_id="controller:if0"/>
+    <interface_ref client_id="networkmanager:if0"/>
+    <interface_ref client_id="compute1:if0"/>
+    <interface_ref client_id="compute2:if0"/>
+</link>
+\end{verbatim}
 
 % ---------------------------------------- 5 ----------------------------------------
 \paragraph{5. } The screenshot of list\_user RESTful API output:
