@@ -51,8 +51,12 @@ The "Network Topology" tab under the Network section in the above Figure shows t
 \paragraph{4. } List the necessary changes in the profile file to add an extra compute node, and submit a revised RSpec.
 
 % ---------------------------------------- 5 ----------------------------------------
-\paragraph{5. } Extend the Intercloud API to display user list (KEYSTONE) as:
-curl -u clouduser:EasyPassword15 \-i http://[IP]:8090/list\_user Provide screenshot of the output.
+\paragraph{5. } The screenshot of list\_user RESTful API output:
+\begin{figure}[H]
+  \centering
+    \includegraphics[scale=.44]{list_user.png}
+  \caption{list\_user RESTful API}
+\end{figure}
 
 % ---------------------------------------- 5 ----------------------------------------
 \paragraph{6. } By using your AWS instance setup in AWS Lab\-2, you should write a web service client (use any language of your preference) to request and display the cloud information available in the JSON file in a simple web site. Include the Amazon DNS link and the code in your submission report.
