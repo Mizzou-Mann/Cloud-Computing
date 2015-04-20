@@ -38,5 +38,25 @@
       <% end %>
     </tbody>
   </table>
+
+  <h2>User Information</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Enabled</td>
+        <td>Email</td></tr>
+    </thead>
+    <tbody>
+      <% @cloudlab.list_user do |user| %>
+      <tr>
+        <td><%= user[0] %></td>
+        <td><%= user[1] %></td>
+        <td><%= user[2] %></td>
+        <td><%= user[3] %></td></tr>
+      <% end %>
+    </tbody>
+  </table>
 </body>
 </html>
