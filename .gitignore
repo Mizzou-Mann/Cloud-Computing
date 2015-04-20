@@ -4,3 +4,4 @@
 *.un~
 *.DS_Store
 *OnTimeControl/
+*.bundle/
