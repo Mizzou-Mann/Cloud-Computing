@@ -7,6 +7,13 @@
   Name: Chanmann Lim <br/>
   PawPrint: cl9p8
 
+  <h1>AWS AMAZON</h1>
+  <h2>Instance Information</h2>
+  <h3>Hostname  : <%= @aws.hostname %></h3>
+  <h3>Instance ID : <%= @aws.instance_id %></h3>
+  <h3>Zone  : <%= @aws.zone %></h3>
+  <h3>Security Group : <%= @aws.secgroup %></h3>
+
   <h1>CloudLab</h1>
   <h2>Instance Information</h2>
   <table border="1">
@@ -20,7 +27,7 @@
         <td>Networks</td></tr>
     </thead>
     <tbody>
-      <% @output.each do |instance| %>
+      <% @cloudlab.list do |instance| %>
       <tr>
         <td><%= instance[0] %></td>
         <td><%= instance[1] %></td>
