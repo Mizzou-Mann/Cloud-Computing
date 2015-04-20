@@ -5,3 +5,5 @@
 *.DS_Store
 *OnTimeControl/
 *.bundle/
+*.out
+web_client.zip

@@ -7,6 +7,7 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{hyperref}
 
 \begin{document}
 \title{CS 7001-03: Report for Lab 4: InterCloud Web Services for OpenStack\-based Cloud Orchestration}
@@ -89,6 +90,14 @@ The "Network Topology" tab under the Network section in the above Figure shows t
 \end{figure}
 
 % ---------------------------------------- 5 ----------------------------------------
-\paragraph{6. } By using your AWS instance setup in AWS Lab\-2, you should write a web service client (use any language of your preference) to request and display the cloud information available in the JSON file in a simple web site. Include the Amazon DNS link and the code in your submission report.
+\paragraph{6. } Web service client (written in ruby) to use the JSON web service created in the experiment. \\
+
+URL: \url{http://ec2-52-4-89-196.compute-1.amazonaws.com}\\
+
+\newpage
+\subsection*{Source code:}
+\lstinputlisting[language=Ruby, title=\lstname, basicstyle=\footnotesize]{web_client/app.rb}
+\lstinputlisting[language=Ruby, title=\lstname, basicstyle=\footnotesize]{web_client/views/index.erb}
+
 
 \end{document}
